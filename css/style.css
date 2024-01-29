@@ -25,6 +25,11 @@
   flex: 1 0 30%;
   max-width: 30%;
 }
+@media screen and (max-width: 900px) {
+  .container .card {
+    max-width: 90%;
+  }
+}
 .container .card .card-image {
   display: flex;
   justify-content: center;
@@ -32,7 +37,7 @@
   margin-bottom: 2rem;
 }
 .container .card .card-image img {
-  height: 40vh;
+  height: 35vh;
 }
 .container .card .card-name {
   font-family: "Inter Tight", sans-serif;
