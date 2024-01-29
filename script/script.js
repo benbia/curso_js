@@ -58,6 +58,24 @@ function comprar() {
     }
 }
 
+const container = document.getElementById("container")
+
+function mostrarProductos(arrayProductos) {
+    container.innerHTML = ""
+
+    arrayProductos.forEach(producto => {
+        container.innerHTML += `<div class="card card-shadow">
+        <div class="card-image"><img src= ${producto.img} alt="#"></div>
+        <div class="card-name">${producto.nombre}</div>
+        <div class="card-price">USD ${producto.precio}</div>
+        <div class="card-comprar">Comprar</div>
+    </div>`
+    });
+
+}
+
+mostrarProductos(productos)
+
 
 
 

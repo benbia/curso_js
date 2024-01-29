@@ -15,11 +15,15 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   padding: 2.5rem;
+  justify-content: center;
 }
 .container .card {
   box-sizing: border-box;
   height: auto;
+  flex: 1 0 30%;
+  max-width: 30%;
 }
 .container .card .card-image {
   display: flex;

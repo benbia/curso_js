@@ -11,14 +11,24 @@
     margin-bottom: 3rem;
 }
 
+
+
 .container {
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
     padding: 2.5rem;
+    justify-content: center;
 
     .card {
         box-sizing: border-box;
         height: auto;
+        
+        // para que tengan same width las cards
+
+        flex: 1 0 30%; 
+        max-width: 30%;
+
         .card-image {
             display: flex;
             justify-content: center;
