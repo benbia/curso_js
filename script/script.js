@@ -1,13 +1,74 @@
 const carrito = []
+const botonCarrito = document.querySelector("#boton-carrito")
+const container = document.getElementById("container")
+
+function retornarCardError () {
+    return container.innerHTML = `<div class="cardError">
+    <i class='bx bx-error-circle errorIcon'></i>
+    <p class="p-error">Los sentimos, pero no hemos podido encontrar el producto que buscaste</p>
+    </div>`
+}
+
+function mostrarCardHTML(arrayProductos) {
+    container.innerHTML = ""
+
+    arrayProductos.forEach(producto => {
+        container.innerHTML += `<div class="card card-shadow">
+        <div class="card-image"><img src= ${producto.img} alt="#"></div>
+        <div class="card-name">${producto.nombre}</div>
+        <div class="card-price">USD ${producto.precio}</div>
+        <button id="${producto.id}" class="card-comprar">Comprar</button>
+    </div>`
+    });
+
+}
+
+function activarBotonesCompra() {
+    const botonesComprar = document.querySelectorAll("button.card-comprar")
+    for (let boton of botonesComprar) {
+        boton.addEventListener("click", () => {
+            const productoElegido = productos.find((producto) => producto.id === parseInt(boton.id))
+            carrito.push(productoElegido)
+        })
+        
+    }
+}
+
+function cargarProductos(arrayProductos) {
+    if (arrayProductos.length > 0) {
+        mostrarCardHTML(arrayProductos)
+        activarBotonesCompra()
+    } else {
+        return retornarCardError()
+    }
+}
+
+cargarProductos(productos)
+
+// boton del carrito
+
+botonCarrito.addEventListener("mousemove", () => {
+    if (carrito.length > 1) {
+        botonCarrito.title = "Hay " + carrito.length + " productos en tu carrito"
+    } else if (carrito.length === 1){
+        botonCarrito.title = "Hay " + carrito.length + " producto en tu carrito"
+    } else {
+        botonCarrito.title = "No hay productos en el carrito"
+    }
+})
+
+botonCarrito.addEventListener("click", () => {
+    if (carrito.length > 0) {
+        location.href = "checkout.html"
+    } else {
+        alert("No hay productos en tu carrito")
+    }
+})
 
 
+// 
 
-const carritoPrueba = [
-    {id: 2, marca:"Apple", nombre: "IPhone 14", precio: 1149},
-    {id: 3, marca:"Apple", nombre: "IPhone 13", precio: 1049},
-    {id: 4, marca:"Samsung", nombre: "Galaxy S24", precio: 1300}
-]
-
+/* 
 function filtrarPorMarca() {
     let marcaAFiltrar = prompt("¿Qué marca deseas buscar?")
 
@@ -26,10 +87,7 @@ function filtrarPorMarca() {
     
 }
 
-function buscarPorId(codigo) {
-    const articuloSeleccionado = productos.find((producto) => producto.id === codigo)
-    return articuloSeleccionado
-}
+
 
 function comprar() {
     let idUsuario = parseInt(prompt("Ingrese el identificador del artículo a comprar"))
@@ -58,26 +116,7 @@ function comprar() {
     }
 }
 
-const container = document.getElementById("container")
-
-function mostrarProductos(arrayProductos) {
-    container.innerHTML = ""
-
-    arrayProductos.forEach(producto => {
-        container.innerHTML += `<div class="card card-shadow">
-        <div class="card-image"><img src= ${producto.img} alt="#"></div>
-        <div class="card-name">${producto.nombre}</div>
-        <div class="card-price">USD ${producto.precio}</div>
-        <div class="card-comprar">Comprar</div>
-    </div>`
-    });
-
-}
-
-mostrarProductos(productos)
-
-
-
+*/
 
 
 
