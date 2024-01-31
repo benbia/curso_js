@@ -1,6 +1,10 @@
 const carrito = []
 const botonCarrito = document.querySelector("#boton-carrito")
 const container = document.getElementById("container")
+const inputBuscar = document.querySelector("input#input-search")
+
+
+
 
 function retornarCardError () {
     return container.innerHTML = `<div class="cardError">
@@ -62,6 +66,23 @@ botonCarrito.addEventListener("click", () => {
         location.href = "checkout.html"
     } else {
         alert("No hay productos en tu carrito")
+    }
+})
+
+// busqueda
+
+inputBuscar.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" && inputBuscar.value.trim() !== "") {
+        const productosFiltrados = productos.filter(producto => producto.nombre.toUpperCase().includes(inputBuscar.value.toUpperCase().trim()))
+        cargarProductos(productosFiltrados)
+    } else {
+        cargarProductos(productos)
+    }
+})
+
+inputBuscar.addEventListener("input", () => {
+    if(inputBuscar.value.trim() == "") {
+        cargarProductos(productos)
     }
 })
 
