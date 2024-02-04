@@ -17,7 +17,6 @@ function mostrarFilaHTMLCheckout(arrayProductos) {
         <div class="checkout-data checkout-name no-seleccionable">${producto.nombre}</div>
         <div class="checkout-data checkout-price no-seleccionable">USD ${producto.precio}</div>
         <!-- <div class="checkout-data checkout-cantidad no-seleccionable"><div class="plus">+</div><div class="number">1</div><div class="less">-</div></div> -->
-        <div id="${producto.id}" class="checkout-data checkout-delete no-seleccionable"><i class='bx bxs-trash delete-icon'></i></div>
     </div>`
     });
 
@@ -27,7 +26,7 @@ function mostrarFilaHTMLCheckout(arrayProductos) {
 
 }
 
-// agregar boton de eliminar 
+// agregar boton de eliminar <div id="${producto.id}" class="checkout-data checkout-delete no-seleccionable"><i class='bx bxs-trash delete-icon'></i></div>
 
 
 
