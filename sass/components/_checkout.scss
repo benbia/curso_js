@@ -1,0 +1,197 @@
+.h1-checkout {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 5rem;
+    color: $color-azul;
+    text-align: center;
+    margin-top: 3rem;
+    
+    @media screen and (max-width: 700px) {
+        font-size: 4rem;
+    }
+}
+
+.section-checkout {
+    display: flex;
+    justify-content: center;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    
+    margin: 3rem 3rem;
+}
+
+.table-div {
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    border: 2px solid $color-azul;
+    border-radius: 25px;
+    background-color: rgba($color: $color-azul, $alpha: 0.1);
+
+    .checkout-product {
+        width: fit-content;
+        padding: 1rem 3rem;
+        
+
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        
+       
+        
+        .checkout-data {
+            
+            border-collapse: collapse;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .checkout-img {
+
+            img {
+                height: 5rem;
+
+            }
+        }
+
+        .checkout-name {
+            font-family: "Inter Tight", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 2rem;
+            color: $color-azul;
+        }
+
+        .checkout-cantidad {
+            display: flex;
+            
+            
+
+            .plus {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 1rem 1.5rem;
+                font-family: "Inter Tight", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 2rem;
+                color: $color-azul;
+                background-color: $color-celeste;
+                border-bottom-left-radius: 15px;
+                border-top-left-radius: 15px;
+                height: 100%;
+
+                &:active, &:hover {
+                    background-color: rgba($color: $color-celeste, $alpha: 0.8);
+                }
+
+            }
+
+            .number {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                padding: 1rem 2.5rem;
+                font-family: "Inter Tight", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 410;
+                font-style: normal;
+                font-size: 1.5rem;
+                color: $color-azul;
+                height: 100%;
+                align-self: center;
+
+                background-color: rgba($color: $color-azul, $alpha: 0.1);
+                
+            }
+
+            .less {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                padding: 1rem 1.5rem;
+                font-family: "Inter Tight", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 2rem;
+                color: $color-azul;
+                background-color: $color-celeste;
+                height: 100%;
+
+                border-bottom-right-radius: 15px;
+                border-top-right-radius: 15px;
+
+                &:active, &:hover {
+                    background-color: rgba($color: $color-celeste, $alpha: 0.8);
+                }
+            }
+        }
+
+        .checkout-price {
+            font-family: "Inter Tight", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2rem;
+            color: $color-azul;
+        }
+
+        .checkout-delete {
+
+            .delete-icon {
+                color: $color-azul;
+                font-size: 2.5rem;
+
+                &:active, &:hover {
+                    color: rgba($color: $color-azul, $alpha: 0.8);
+                }
+
+            }
+            
+        }
+    }
+    
+}
+
+.total-div {
+    background-color: $color-celeste;
+    border-radius: 25px;
+    padding: 1rem 2rem;
+    width: fit-content;
+    align-self: flex-end;
+    display: flex;
+    gap: 5px;
+
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    color: $color-blanco;
+
+    .div-precio-total {
+        font-weight: 600;
+    }
+}

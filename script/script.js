@@ -33,6 +33,7 @@ function activarBotonesCompra() {
         boton.addEventListener("click", () => {
             const productoElegido = productos.find((producto) => producto.id === parseInt(boton.id))
             carrito.push(productoElegido)
+            localStorage.setItem("miCarrito", JSON.stringify(carrito))
         })
         
     }
@@ -106,35 +107,6 @@ function filtrarPorMarca() {
         console.alert("Porfavor ingrese una marca válida")
     }
     
-}
-
-
-
-function comprar() {
-    let idUsuario = parseInt(prompt("Ingrese el identificador del artículo a comprar"))
-
-    let articuloSeleccionado = buscarPorId(idUsuario)
-
-    if (articuloSeleccionado === undefined) {
-        console.error("Ha habido un error buscando su articulo seleccionado")
-    } else {
-        carrito.push(articuloSeleccionado)
-        alert("Se agregó " + articuloSeleccionado.nombre + " correctamente al carrito")
-
-        let seguirComprando = confirm("¿Desea seguir comprando?")
-
-        if(seguirComprando === true) {
-            console.clear()
-            console.table(carrito)
-            comprar()
-        } else {
-            console.clear()
-            console.table(carrito)
-            const compraCompletada = new Compra(carrito)
-            console.log("El total de su compra es de US$", compraCompletada.obtenerTotal().toLocaleString("es-UY"))
-            alert("Muchas gracias por comprar con nosotros!")
-        }
-    }
 }
 
 */

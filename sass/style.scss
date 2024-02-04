@@ -7,7 +7,7 @@
 // components
 
 @import './components/main';
-
+@import './components/checkout';
 
 // inicialización 
 
@@ -30,3 +30,10 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
+  .no-seleccionable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}

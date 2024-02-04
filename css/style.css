@@ -169,6 +169,164 @@ input::-webkit-search-cancel-button {
   color: #f5f5f7;
 }
 
+.h1-checkout {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 5rem;
+  color: #022f46;
+  text-align: center;
+  margin-top: 3rem;
+}
+@media screen and (max-width: 700px) {
+  .h1-checkout {
+    font-size: 4rem;
+  }
+}
+
+.section-checkout {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  margin: 3rem 3rem;
+}
+
+.table-div {
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+  border: 2px solid #022f46;
+  border-radius: 25px;
+  background-color: rgba(2, 47, 70, 0.1);
+}
+.table-div .checkout-product {
+  width: fit-content;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.table-div .checkout-product .checkout-data {
+  border-collapse: collapse;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table-div .checkout-product .checkout-img img {
+  height: 5rem;
+}
+.table-div .checkout-product .checkout-name {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  color: #022f46;
+}
+.table-div .checkout-product .checkout-cantidad {
+  display: flex;
+}
+.table-div .checkout-product .checkout-cantidad .plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  color: #022f46;
+  background-color: #219ebc;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  height: 100%;
+}
+.table-div .checkout-product .checkout-cantidad .plus:active, .table-div .checkout-product .checkout-cantidad .plus:hover {
+  background-color: rgba(33, 158, 188, 0.8);
+}
+.table-div .checkout-product .checkout-cantidad .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 410;
+  font-style: normal;
+  font-size: 1.5rem;
+  color: #022f46;
+  height: 100%;
+  align-self: center;
+  background-color: rgba(2, 47, 70, 0.1);
+}
+.table-div .checkout-product .checkout-cantidad .less {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  color: #022f46;
+  background-color: #219ebc;
+  height: 100%;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.table-div .checkout-product .checkout-cantidad .less:active, .table-div .checkout-product .checkout-cantidad .less:hover {
+  background-color: rgba(33, 158, 188, 0.8);
+}
+.table-div .checkout-product .checkout-price {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #022f46;
+}
+.table-div .checkout-product .checkout-delete .delete-icon {
+  color: #022f46;
+  font-size: 2.5rem;
+}
+.table-div .checkout-product .checkout-delete .delete-icon:active, .table-div .checkout-product .checkout-delete .delete-icon:hover {
+  color: rgba(2, 47, 70, 0.8);
+}
+
+.total-div {
+  background-color: #219ebc;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  width: fit-content;
+  align-self: flex-end;
+  display: flex;
+  gap: 5px;
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #f5f5f7;
+}
+.total-div .div-precio-total {
+  font-weight: 600;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -188,6 +346,13 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+.no-seleccionable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /*# sourceMappingURL=style.css.map */
