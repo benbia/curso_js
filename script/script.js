@@ -1,13 +1,30 @@
-const carrito = []
+function recuperarCarrito() {
+    return JSON.parse(localStorage.getItem("miCarrito")) || [] // falsy (operador logico ||)
+}
+
+const carrito = recuperarCarrito()
 const botonCarrito = document.querySelector("#boton-carrito")
 const container = document.getElementById("container")
 const inputBuscar = document.querySelector("input#input-search")
 
+const imagenLoading = `<img class="loading-img" src="img/loading.gif" alt="#">`
 
+function notificar(producto) {
+    Toastify({
+        text: `${producto.nombre} ha sido agregado a tu carrito`,
+        duration: 3000,
+        style: {
+            background: "linear-gradient(90deg, rgba(92,195,40,1) 0%, rgba(42,191,38,1) 100%)",
+            padding: "2rem 2.5rem",
+        },
+        gravity: "bottom",
+        close: true,
 
+        }).showToast();
+}
 
 function retornarCardError () {
-    return container.innerHTML = `<div class="cardError">
+    return container.innerHTML = `<div class="cardError animate__animated animate__zoomIn">
     <i class='bx bx-error-circle errorIcon'></i>
     <p class="p-error">Los sentimos, pero no hemos podido encontrar el producto que buscaste</p>
     </div>`
@@ -17,7 +34,7 @@ function mostrarCardHTML(arrayProductos) {
     container.innerHTML = ""
 
     arrayProductos.forEach(producto => {
-        container.innerHTML += `<div class="card card-shadow">
+        container.innerHTML += `<div class="card card-shadow animate__animated animate__zoomIn ">
         <div class="card-image"><img src= ${producto.img} alt="#"></div>
         <div class="card-name">${producto.nombre}</div>
         <div class="card-price">USD ${producto.precio}</div>
@@ -34,6 +51,7 @@ function activarBotonesCompra() {
             const productoElegido = productos.find((producto) => producto.id === parseInt(boton.id))
             carrito.push(productoElegido)
             localStorage.setItem("miCarrito", JSON.stringify(carrito))
+            notificar(productoElegido)
         })
         
     }
@@ -44,7 +62,9 @@ function cargarProductos(arrayProductos) {
         mostrarCardHTML(arrayProductos)
         activarBotonesCompra()
     } else {
-        return retornarCardError()
+        setTimeout(()=> {
+            retornarCardError()
+        }, Math.random()*900) 
     }
 }
 
@@ -54,19 +74,25 @@ cargarProductos(productos)
 
 botonCarrito.addEventListener("mousemove", () => {
     if (carrito.length > 1) {
-        botonCarrito.title = "Hay " + carrito.length + " productos en tu carrito"
-    } else if (carrito.length === 1){
-        botonCarrito.title = "Hay " + carrito.length + " producto en tu carrito"
+        botonCarrito.title = "Ir al Carrito"
     } else {
         botonCarrito.title = "No hay productos en el carrito"
     }
 })
 
+function carritoVacio() {
+    Swal.fire({
+        icon:'warning',
+        title: "Debes agregar al menos un producto a tu carrito",
+        confirmButtonText: 'Entendido'
+    })
+}
+
 botonCarrito.addEventListener("click", () => {
     if (carrito.length > 0) {
         location.href = "checkout.html"
     } else {
-        alert("No hay productos en tu carrito")
+        carritoVacio()
     }
 })
 
@@ -75,16 +101,17 @@ botonCarrito.addEventListener("click", () => {
 inputBuscar.addEventListener("keypress", (e) => {
     if (e.key === "Enter" && inputBuscar.value.trim() !== "") {
         const productosFiltrados = productos.filter(producto => producto.nombre.toUpperCase().includes(inputBuscar.value.toUpperCase().trim()))
-        cargarProductos(productosFiltrados)
-    } else {
-        cargarProductos(productos)
+        container.innerHTML = imagenLoading
+
+        setTimeout(()=> {
+            cargarProductos(productosFiltrados)
+        }, Math.random()*900)
+
     }
 })
 
 inputBuscar.addEventListener("input", () => {
-    if(inputBuscar.value.trim() == "") {
-        cargarProductos(productos)
-    }
+    inputBuscar.value.trim() == "" && cargarProductos(productos) // si se cumple lo de elvalor "" entonces... (operador logico &&)
 })
 
 
@@ -110,7 +137,6 @@ function filtrarPorMarca() {
 }
 
 */
-
 
 
 

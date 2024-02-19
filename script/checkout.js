@@ -7,6 +7,10 @@ function recuperarCarrito() {
 const carrito = recuperarCarrito()
 const containerCheckout = document.querySelector(".table-div")
 const containerTotal = document.querySelector(".total-div")
+const btnComprar = document.querySelector(".boton-comprar")
+const btnVolver = document.querySelector(".goBack")
+
+btnVolver.addEventListener("click", () => history.back())
 
 function mostrarFilaHTMLCheckout(arrayProductos) {
     containerCheckout.innerHTML = ""
@@ -28,6 +32,20 @@ function mostrarFilaHTMLCheckout(arrayProductos) {
 
 // agregar boton de eliminar <div id="${producto.id}" class="checkout-data checkout-delete no-seleccionable"><i class='bx bxs-trash delete-icon'></i></div>
 
+function compraFinalizada() {
+    Swal.fire({
+        icon:'success',
+        title: "Compra finalizada!",
+        text: "Gracias por comprar con nosotros"
+    })
+}
+
+btnComprar.addEventListener("click", () => {
+        compraFinalizada()
+        localStorage.removeItem("miCarrito")
+        carrito.lenght = 0
+        btnComprar.setAttribute("disabled", "true")
+})
 
 
 mostrarFilaHTMLCheckout(carrito)

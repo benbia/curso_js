@@ -16,6 +16,7 @@
 .section-checkout {
     display: flex;
     justify-content: center;
+    
 }
 
 .checkout {
@@ -195,3 +196,71 @@
         font-weight: 600;
     }
 }
+
+.boton-comprar {
+    background-color: $color-naranja;
+    border-radius: 40px;
+    padding: 1.3rem 3rem;
+    width: 100%;
+    align-self: center;
+    margin-top: 2.3rem;
+    outline: none;
+    border: none;
+
+
+    text-align: center;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: $color-blanco;
+
+    transition: all 0.1s ease-in;
+
+    &:active {
+        background-color: rgba($color: $color-naranja, $alpha: 0.6);
+    }
+
+    &:disabled {
+        background-color: rgba($color: $color-naranja, $alpha: 0.35)
+    }
+}
+
+.goBack {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    background-color: $color-celeste;
+    padding: 1rem 2rem;
+    padding-left: 1.5rem;
+    border-radius: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2rem;
+    color: $color-blanco;
+
+    transition: all 0.1s ease-in;
+
+    &:active {
+        background-color: rgba($color: $color-celeste, $alpha: 0.6)
+    }
+
+}
+
+.swal2-html-container {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    color: $color-azul;
+}
+

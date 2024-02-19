@@ -1,4 +1,5 @@
 const productos = [
+
     {id: 1, img:"img/iphone-15.png", marca:"Apple", nombre: "IPhone 15", precio: 1351, cantidad: 0},
     {id: 2, img:"img/iphone-14.png", marca:"Apple", nombre: "IPhone 14", precio: 1149, cantidad: 0},
     {id: 3, img:"img/iphone-13.png", marca:"Apple", nombre: "IPhone 13", precio: 1049, cantidad: 0},

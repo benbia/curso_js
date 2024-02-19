@@ -91,6 +91,8 @@ input::-webkit-search-cancel-button { // para cambiar el color de la x al buscar
     .card {
         box-sizing: border-box;
         height: auto;
+
+        transition: all 0.3s ease-in;
         
         // para que tengan same width las cards
 
@@ -149,6 +151,8 @@ input::-webkit-search-cancel-button { // para cambiar el color de la x al buscar
             box-shadow:  11px 11px 29px #bebebe,
                         -11px -11px 29px #ffffff;
             
+            transition: all 0.1s ease-in;
+            
             &:active {
                 background-color: rgba($color: $color-celeste, $alpha: 0.8);
             }
@@ -192,4 +196,56 @@ input::-webkit-search-cancel-button { // para cambiar el color de la x al buscar
         color: $color-blanco;
     }
     
+}
+
+.swal2-title {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2rem;
+    color: $color-azul;
+}
+
+.swal2-styled {
+    background-color: $color-celeste !important;
+    box-shadow: none !important;
+
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem !important;
+    color: $color-blanco;
+
+    transition: all 0.1s ease-in !important;
+}
+
+.swal2-warning {
+    color: rgba($color: $color-naranja, $alpha: 0.8) !important;
+    border-color: rgba($color: $color-naranja, $alpha: 0.8) !important;
+}
+
+.swal-size {
+    width: 60vw;
+
+}
+
+.toastify {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding: 1rem 2rem;
+    font-size: 1.8rem !important;
+    color: $color-blanco;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.loading-img {
+    align-self: center;
+
+    transition: all 0.1s ease-in;
 }
