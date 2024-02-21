@@ -2,7 +2,10 @@ function recuperarCarrito() {
     return JSON.parse(localStorage.getItem("miCarrito")) || [] // falsy (operador logico ||)
 }
 
+const productos = []
 const carrito = recuperarCarrito()
+const URL = "script/productos.json"
+
 const botonCarrito = document.querySelector("#boton-carrito")
 const container = document.getElementById("container")
 const inputBuscar = document.querySelector("input#input-search")
@@ -68,7 +71,41 @@ function cargarProductos(arrayProductos) {
     }
 }
 
-cargarProductos(productos)
+
+async function obtenerProductos() {
+    try {
+        const response = await fetch(URL)
+        if(response.ok === true) {
+            const data = await response.json() // encuentra el array de objetos y lo retorna como js (lo transforma de json a js)
+        } else {
+            throw new Error("No se pudo obtener los productos " + "(" + response.status + ")")
+        }
+        
+        productos.push(...data)
+        cargarProductos(productos)
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+obtenerProductos()
+
+// function obtenerProductos() { // como son todas cosas asincronicas espera a que se termine una para pasar a la otra, por eso el then
+//     fetch(URL)
+//     .then(response => {
+//         if(response.ok === true) {
+//             return response.json() // encuentra el array de objetos y lo retorna como js (lo transforma de json a js)
+//         } else {
+//             throw new Error("No se pudo obtener los productos " + "(" + response.status + ")")
+//         }
+//     }) 
+//     .then(data => productos.push(...data)) // los tres puntitos es para subir todos los objetos del array de una (ya estaba en js)
+//     .then(() => cargarProductos(productos))
+//     .catch(error => console.error(error)) // por si pasa algo con error --> comunmente no deberia verse solamente en la consola el error
+// }
+
+// obtenerProductos()
 
 // boton del carrito
 

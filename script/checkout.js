@@ -9,8 +9,14 @@ const containerCheckout = document.querySelector(".table-div")
 const containerTotal = document.querySelector(".total-div")
 const btnComprar = document.querySelector(".boton-comprar")
 const btnVolver = document.querySelector(".goBack")
+const checkout = document.querySelector(".checkout")
 
 btnVolver.addEventListener("click", () => history.back())
+
+function mostrarCarritoVacio(){
+    checkout.innerHTML = `<div class="carritoVacio">No hay productos en tu carrito</div>
+                        <button disabled="true" class="boton-comprar no-seleccionable">Comprar</button>`
+}
 
 function mostrarFilaHTMLCheckout(arrayProductos) {
     containerCheckout.innerHTML = ""
@@ -33,18 +39,38 @@ function mostrarFilaHTMLCheckout(arrayProductos) {
 // agregar boton de eliminar <div id="${producto.id}" class="checkout-data checkout-delete no-seleccionable"><i class='bx bxs-trash delete-icon'></i></div>
 
 function compraFinalizada() {
+
     Swal.fire({
         icon:'success',
         title: "Compra finalizada!",
         text: "Gracias por comprar con nosotros"
     })
+
+    localStorage.removeItem("miCarrito")
+    carrito.lenght = 0
+    btnComprar.setAttribute("disabled", "true")
+    mostrarCarritoVacio()
+}
+
+function comprar() {
+    Swal.fire({
+        icon: 'question',
+        title: '¿Desea finalizar su compra?',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+
+        
+    }).then(result => {
+        if(result.isConfirmed === true) {
+            compraFinalizada()
+        }
+    })
 }
 
 btnComprar.addEventListener("click", () => {
-        compraFinalizada()
-        localStorage.removeItem("miCarrito")
-        carrito.lenght = 0
-        btnComprar.setAttribute("disabled", "true")
+        comprar()
+        
 })
 
 

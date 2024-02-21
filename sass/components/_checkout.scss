@@ -6,7 +6,7 @@
     font-size: 5rem;
     color: $color-azul;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 10rem;
     
     @media screen and (max-width: 700px) {
         font-size: 4rem;
@@ -262,5 +262,30 @@
     font-style: normal;
     font-size: 1.5rem;
     color: $color-azul;
+}
+
+.swal2-cancel {
+    background-color: #bebebe !important;
+}
+
+.carritoVacio {
+    width: 100%;
+    padding: 3rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 50px;
+    background: $color-celeste;
+    box-shadow:  11px 11px 29px #bebebe,
+                -11px -11px 29px #ffffff;
+    
+
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 550;
+    font-style: normal;
+    font-size: 2rem;
+    color: $color-blanco;
 }
 
