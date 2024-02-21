@@ -77,13 +77,12 @@ async function obtenerProductos() {
         const response = await fetch(URL)
         if(response.ok === true) {
             const data = await response.json() // encuentra el array de objetos y lo retorna como js (lo transforma de json a js)
+            productos.push(...data)
+            cargarProductos(productos)
         } else {
             throw new Error("No se pudo obtener los productos " + "(" + response.status + ")")
         }
         
-        productos.push(...data)
-        cargarProductos(productos)
-
     } catch (error) {
         console.error(error)
     }
